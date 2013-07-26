@@ -1,0 +1,15 @@
+<?php
+
+class new {
+ public $prop1;
+ public $prop2;
+
+ function __construct() {
+ echo "Testing";
+ }
+ function set_props($prop) {
+  this->prop1
+  }
+}
+
+?>
