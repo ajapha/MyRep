@@ -1,6 +1,0 @@
-<?php
-
-echo "hello, world"
-echo "I think I got it!"
-
-?>
