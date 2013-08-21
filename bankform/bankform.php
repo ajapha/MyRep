@@ -37,6 +37,11 @@ class forms {
 	
 	public $info_form =  '<FORM action="bankform.php?page=next" method="post">
                             <fieldset>
+			                  <LABEL for="username">Username: </LABEL>
+                                <INPUT type="text" name="username" id="username"><BR>
+                                 <LABEL for="password">Password: </LABEL>
+                                  <INPUT type="text" name ="password" id="password"><BR>
+                               <INPUT type="submit" value="Send"> <INPUT type="reset">
                               <LABEL for="first_name">First Name: </LABEL>
                                <INPUT type="text" name="first_name" id="first_name"><BR>
                                 <LABEL for="last_name">Last Name: </LABEL>                     
@@ -83,21 +88,44 @@ class forms {
     
 }
 
-PRINT_R($_SERVER['REQUEST_METHOD']);
+//PRINT_R($_SERVER['REQUEST_METHOD']);
+
 class user {
-	public $username = null;
-	public $first_name = null;
-	public $last_name = null;
-	public $account_number = null;
-	public $password = null;
+	public $username;
+	public $first_name;
+	public $last_name; 
+	public $account_number;
+	public $password;
 }
 
-$user = new user; 
-$user->username = $_POST['username'];
-$user->first_name = $_POST['firstname'];
-$user->last_name = $_POST['lastname'];
-$user->account_number = $_POST['accountnumber'];
-$user->password = $_POST['password'];
-print_r($_POST);
+class users {
+  function __construct() {
+	$user = new user;
+	$user->setProperties(); 
+  }
+  
+  public function setProperties() {
+  $user->username = $_POST['username'];
+  $user->first_name = $_POST['firstname'];
+  $user->last_name = $_POST['lastname'];
+  $user->account_number = $_POST['accountnumber'];
+  $user->password = $_POST['password'];
+  print_r($_POST);
+  }
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
 
 ?>
