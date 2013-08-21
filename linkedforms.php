@@ -9,13 +9,13 @@
       }
 
   if($_REQUEST == NULL) {
-    echo '<a href="./linkedforms.php?page=nameform">Click to View Name Form</a> ';
+    echo '<a href="./take2.php?page=nameform">Click to View Name Form</a> ';
     echo '<br>';
-    echo '<a href="./linkedforms.php?page=carform">Click to View Your Car\'s Value</a>';
+    echo '<a href="./take2.php?page=carform">Click to View Your Car\'s Value</a>';
     echo '<br>';
    } elseif(($_REQUEST['page'] == 'nameform') && ($_SERVER['REQUEST_METHOD'] == 'GET'))   {
-       echo'
-             <FORM action="linkedforms.php?page=nameform" method="post">
+      
+        echo ' <FORM action="linkedforms.php?page=nameform" method="post">
                 <fieldset>
                   <LABEL for="firstname">First Name: </LABEL>
                     <INPUT type="text" name="firstname" id="firstname"><BR>
@@ -46,8 +46,8 @@
   }  
 
   elseif($_REQUEST['page'] == 'carform' && $_SERVER['REQUEST_METHOD'] == 'GET')  {
-    echo '
-             <FORM action="linkedforms.php?page=carform" method="post">
+   
+         echo '<FORM action="linkedforms.php?page=carform" method="post">
                 <fieldset>
                   <LABEL for="make">Make: </LABEL>
                     <INPUT type="text" name="make" id="firstname"><BR>
