@@ -124,27 +124,24 @@
       }
     }
   //Keith told me that the following should be restructered.
-  class addNewUser extends page {
+  class user {
 	public $username;
 	public $first_name;
 	public $last_name; 
 	public $account_number;
 	public $password;
-    public $userinfo = array();
+    //public $newUserInfo = array();
     
-    protected function post() {
+    public function setProps() {
       $this->username = $_POST['username'];
       $this->first_name = $_POST['first_name'];
       $this->last_name = $_POST['last_name'];
       $this->account_number = $_POST['account_number'];
       $this->password = $_POST['password'];
-      //$userInfo = array_combine($userKeys, $userinfo);
-      //$newUserInfo= array($username=>$userInfo);
-      $this->newUserInfo[$this->username] = array("first_name"=>$this->first_name,'last_name'=>$this->last_name, 'account_number'=>$this->account_number, 'password'=>$this->password); 
-      $this->writeCSV();
-      print_r($this->newUserInfo);
+      $this->newUserInfo = array('username' => $this->username,"first_name"=>$this->first_name,'last_name'=>$this->last_name, 'account_number'=>$this->account_number, 'password'=>$this->password); 
+      return $this->newUserInfo;
     }  
-    protected function writeCSV() {  
+/*    protected function writeCSV() {  
       echo '<br>  We need to make a function to write the array to a csv file';
     }
   }
@@ -153,5 +150,38 @@
   	public function post() {
       		echo "we need to make a function to check the csv file for the username and password";
     }
+  */
+  }
+  class addNewUser {
+  	
+  	public function __construct() {
+  		$obj=new user();
+  		$user = $obj->setProps();
+  		print_r($user);	
+  		$fp = fopen('user_info.csv', 'a');
+  	    fputcsv($fp, $user, ',');
+  		fclose($fp);
+  		
+  		$obj2 = new file();
+  		$obj2->readFile();
+  	}
+  }
+
+  
+  class file {
+  	public function readFile(){
+  		$row = 1;
+  		if (($handle = fopen("user_info.csv", "r")) !== FALSE) {
+  			while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+  				$num = count($data);
+  				echo "<p> $num fields in line $row: <br /></p>\n";
+  				$row++;
+  				for ($c=0; $c < $num; $c++) {
+  				echo $data[$c] . "<br />\n";
+  				}
+  				}
+  				fclose($handle);
+  				}
+  	}
   }
 ?>

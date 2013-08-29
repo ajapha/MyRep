@@ -9,9 +9,9 @@
       }
 
   if($_REQUEST == NULL) {
-    echo '<a href="./take2.php?page=nameform">Click to View Name Form</a> ';
+    echo '<a href="./linkedforms.php?page=nameform">Click to View Name Form</a> ';
     echo '<br>';
-    echo '<a href="./take2.php?page=carform">Click to View Your Car\'s Value</a>';
+    echo '<a href="./linkedforms.php?page=carform">Click to View Your Car\'s Value</a>';
     echo '<br>';
    } elseif(($_REQUEST['page'] == 'nameform') && ($_SERVER['REQUEST_METHOD'] == 'GET'))   {
       
