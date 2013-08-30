@@ -187,20 +187,24 @@
      
   class authenticate extends file_manage {
       public $users_info;
+      public $data;
   	public function post() {
       $this->users_info = $this->readFile('user_info.csv', 'r'); 
-      $this->find_username();	
+      $this->find_username();
+      $this->welcome_user();	
     }
     protected function find_username() {
     	$num = 1; 
       while(isset($this->users_info["$num"]) && $num < 100) {  
             $a = $this->users_info["$num"];
           if(in_array($_POST['username'], $a, true) && (in_array($_POST['password'], $a, true))) {
-    	      $data = $a;
+    	      $this->data = $a;
           } $num ++; 
       }   
-      if(isset($data)) {
-          echo "<center><H3><br>Welcome back " . $data['first_name'] . '!</H3>' . '<br><pre><b>Account Number ' . $data['account_number'] . '</b></pre></center>';
+    }
+    protected function welcome_user() {
+    if(isset($this->data)) {
+          echo "<center><H3><br>Welcome back " . $this->data['first_name'] . '!</H3>' . '<br><pre><b>Account Number ' . $this->data['account_number'] . '</b></pre></center>';
           echo '<center><a href="bankform.php?page=dbtcrt_form">Click here to begin entering transactions.</a></center>';
           echo '<center><a href="bankform.php?page=dbtcrt_form">Click here to change your information.</a></center>';              
       } else {
