@@ -1,0 +1,100 @@
+@CHARSET "UTF-8";
+
+* {
+	margin:0;
+}
+body {
+	height: 800px;
+}
+
+header {
+	width: 100%;
+	height: 130px;
+	background-color: #38B4EF;
+    padding-left:0;
+    padding-top:5px;
+    margin-top:0;
+}
+
+h1, h2{
+	color: #38B4EF;
+	font-family: helvetica serif;
+}
+
+header h1 {
+	color:#D7DDE1;
+	padding-left:11px;
+	font-family: helvetica serif;
+}
+header h2{
+	color: black;
+    padding-left:11px;
+    font-family: helvetica serif;	
+}
+div {
+	margin-top:15px;
+	text-align:center;
+	padding: 6px;
+	height: 650px;
+}
+img{
+	float: right;
+	margin-right: 6px;
+}
+
+footer {
+	height: 20px; 
+	text-align: right;
+	margin-right:5px;
+	border-top: 2px solid black;
+}
+ul {
+	padding-top: 7px;
+	border-top: 1px solid #B4BEDD;
+	padding-left: 0;
+	display: inline;
+	text-decoration: none;
+	color: #B4BEDD;
+}
+li {
+	display: inline;
+	border-right: 1px solid #B4BEDD;
+	//border-top: 1px solid #B4BEDD;
+	padding: 8px 40px 8px 40px;
+}
+header h2 {
+	margin-bottom: 38px;
+}
+
+#first {
+	border-left: 1px solid #B4BEDD;
+}
+li a {
+	text-decoration:none;
+}
+#hat {
+	float:left;
+}
+form {
+	width: 220px;
+	background-color: #38B4EF;
+	align: center;
+	margin: auto;
+	
+}
+form, fieldset {
+	width: 40em;
+	background-color: #38B4EF;
+	text-align: center;
+	margin: auto;
+	clear: both;
+	
+}
+pre {
+	color: #38B4EF;
+	font-size: 1.5em;
+}
+#error {
+	font-size: 1.5em;
+	color: red;
+}

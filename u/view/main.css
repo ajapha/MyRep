@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+
+header {
+	width: 100%;
+	height: 120px;
+	background-color: lightblue;
+}
+
+h1{
+	color:gray;
+	font-family: helvetica serif;
+}
