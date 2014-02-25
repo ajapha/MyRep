@@ -74,7 +74,7 @@ class addUser extends dbManage {
 	  }
     }
     function emailCheck($email) {
-	  if(!strchr($email, "@") || !strchr($email, ".")) {
+	  if(!strchr($email, "@") || !strchr($email, ".") || (!filter_var($email, FILTER_VALIDATE_EMAIL))) {
 	    throw new Exception("The email address entered is not valid. Please try again.<br>");
 	  }
     }
@@ -89,7 +89,8 @@ class addUser extends dbManage {
     function sendToMail() {
     	$c = hash('ripemd160', $this->lastName);
     	$d = hash('ripemd160', $this->phone);
-    	header("Location: http://www.mywebclass.org/~ajapha/mail.php?email=$this->email&c=$c&d=$d");
+    	header("Location: http://10.0.0.3/php_mysql/MyRep/u/mailT.php?email=$this->email&c=$c&d=$d");
+        //www.mywebclass.org/~ajapha/mail.php?email=$this->email&c=$c&d=$d");
     	
     }
     
